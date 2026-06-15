@@ -1,0 +1,12 @@
+[build]
+  # The directory where Vite outputs production files
+  publish = "dist"
+  
+  # The command Vite uses to build your project
+  command = "npm run build"
+
+[[redirects]]
+  # This redirects all traffic to index.html so your client-side router can handle it
+  from = "/*"
+  status = 200
+  to = "/index.html"
