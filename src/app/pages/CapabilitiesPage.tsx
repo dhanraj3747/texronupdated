@@ -26,6 +26,7 @@ import key5 from "../../../imageAssets/key5.jpeg";
 import key6 from "../../../imageAssets/key6.jpeg";
 
 
+
 const capabilityGalleryImages = [
   { src: assembledGovernorImg, alt: "Electronic Governor Control Panel Assembly", category: "Assembly", span: "wide" as const },
   { src: hydraulicTestImg, alt: "Hydraulic Testing Bench in Operation", category: "Testing" },

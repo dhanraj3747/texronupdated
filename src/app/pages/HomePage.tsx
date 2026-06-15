@@ -11,7 +11,7 @@ import { BusinessPillars } from "../components/BusinessPillars";
 
 // Actual workspace assets
 import heroImage from "../../../imageAssets/hero-image.jpeg";
-import aboutImage from "../../../imageAssets/hero2.jpeg";
+import aboutImage from "../../../imageAssets/IMG-20211124-WA0018.jpg.jpeg";
 import fieldImage1 from "../../../imageAssets/home1.jpeg";
 import fieldImage2 from "../../../imageAssets/home2.jpeg";
 import fieldImage3 from "../../../imageAssets/home3.jpeg";
