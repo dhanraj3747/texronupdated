@@ -5,10 +5,12 @@ import { FloatingEmergency } from "../components/FloatingEmergency";
 import { MobileStickyBar } from "../components/MobileStickyBar";
 import { BackToTop } from "../components/BackToTop";
 import { SmoothScroll } from "../components/SmoothScroll";
+import { ScrollToTop } from "../components/ScrollToTop"; // ✅ ADD THIS
 
 export function Layout() {
   return (
     <SmoothScroll>
+      <ScrollToTop /> {/* ✅ ADD THIS - must be inside SmoothScroll */}
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pb-14 md:pb-0 typography-rhythm">

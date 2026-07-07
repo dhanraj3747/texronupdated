@@ -87,7 +87,7 @@ export function AboutPage() {
                 </div>
               </div>
               <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6">
-                A Mechanical Engineer from Bangalore University (1991), Jagadish brings over 30 years of hands-on power plant experience to the table. He has personally led installation, erection, and commissioning projects up to 150 MW, and is deeply experienced in turbine diagnostics and performance optimization.
+                A Mechanical Engineer from Bangalore University (1991), Jagadish brings over 28 years of hands-on power plant experience to the table. He has personally led installation, erection, and commissioning projects up to 150 MW, and is deeply experienced in turbine diagnostics and performance optimization.
               </p>
               <h5 className="font-semibold text-[#1A2A3A] text-[14px] mb-3">Highlights from his career:</h5>
               <ul className="space-y-2">
@@ -114,12 +114,12 @@ export function AboutPage() {
                 </div>
               </div>
               <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6">
-                An Electrical & Electronics Engineer with over 24 years of experience in power plant automation and protection systems, Stanley is the brain behind Texron's control engineering capabilities.
+                An Electrical & Electronics Engineer with over 24 years of experience in power plant automation and protection systems, texron's control engineering capabilities.
               </p>
               <h5 className="font-semibold text-[#1A2A3A] text-[14px] mb-3">Highlights from his career:</h5>
               <ul className="space-y-2">
                 {[
-                  "Installation & commissioning of turbine and generator systems across 60+ projects (3 MW to 130 MW)",
+                  "Installation & commissioning of turbine and generator systems across 100+ projects (3 MW to 130 MW)",
                   "Design of custom hydraulic governor systems for turbine applications",
                   "Engineering of DCS/PLC-based turbine control and protection systems",
                   "Design and fabrication of HT, LT, and control panels",

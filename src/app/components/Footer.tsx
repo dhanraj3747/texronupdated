@@ -1,5 +1,7 @@
-import { useNavigate, Link } from "react-router";
+import React from 'react';
+import { useNavigate } from "react-router";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { TexronLogo } from "../components/TexronLogo"; 
 
 export function Footer() {
   const navigate = useNavigate();
@@ -20,25 +22,23 @@ export function Footer() {
   ];
 
   const specializationLinks = [
-    { label: "BHEL Turbine Retrofits", path: "/bhel-steam-turbine-governor-retrofits" },
-    { label: "Voith Hydraulic Systems", path: "/voith-hydraulic-troubleshooting-spares" },
-    { label: "RLA Studies", path: "/rla-studies-thermal-power-plants-bangalore" },
-    { label: "Long-Term Service Agreements", path: "/services/ltsa-amc-services" },
+    { label: "Steam Turbine" },
+    { label: "Steam Turbine Retrofit" },
+    { label: "Hydraulic Turbine Retrofit" },
+    { label: "RLA Studies" },
+    { label: "Long-Term Service Agreements" },
+    { label: "Electrical & Automation" },
   ];
 
   return (
     <footer className="bg-[#1A2A3A] text-white">
       <div className="site-shell py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand */}
+        
+        {/* Brand Section */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-[#FF6B35] rounded flex items-center justify-center">
-              <span className="font-[var(--font-mono)] text-[14px]">TX</span>
-            </div>
-            <div>
-              <div className="font-[var(--font-heading)] text-[16px] tracking-wider">TEXRON</div>
-              <div className="text-[9px] text-white/40 tracking-[0.2em]">POWER PLANT SYSTEMS</div>
-            </div>
+          <div className="mb-4 max-w-[200px]">
+            {/* FIXED: Removed the harsh brightness/contrast filter so colors match the original header brand exactly */}
+            <TexronLogo className="w-full h-auto opacity-95 hover:opacity-100 transition-opacity" />
           </div>
           <p className="text-[13px] text-white/50 leading-relaxed">
             Systems Integrators and Custom Manufacturers. 28 years of turbine diagnostics and rapid response engineering.
@@ -65,14 +65,13 @@ export function Footer() {
         <div>
           <h4 className="font-[var(--font-heading)] text-[12px] tracking-wider text-white/30 mb-4">SPECIALIZATIONS</h4>
           <div className="space-y-2">
-            {specializationLinks.map((link) => (
-              <button
-                key={link.path}
-                onClick={() => handleNav(link.path)}
-                className="block text-[13px] text-white/50 hover:text-white transition-colors text-left bg-transparent border-none cursor-pointer p-0"
+            {specializationLinks.map((link, idx) => (
+              <p
+                key={idx}
+                className="text-[13px] text-white/50 selection:bg-transparent"
               >
                 {link.label}
-              </button>
+              </p>
             ))}
           </div>
         </div>

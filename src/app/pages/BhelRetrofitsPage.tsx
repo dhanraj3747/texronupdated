@@ -1,48 +1,99 @@
 import { Link } from "react-router";
 import {
-  Check,
   Phone,
   ArrowRight,
-  Activity,
-  Settings,
-  Clock,
-  Shield,
 } from "lucide-react";
-import { PhotoPlaceholder } from "../components/PhotoPlaceholder";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { FAQ } from "../components/FAQ";
-import { PageTimestamp } from "../components/PageTimestamp";
-import { FluidGallery } from "../components/ui/fluid-gallery";
 
-// Temporary imports from raw workspace assets - to be migrated to /public/assets/gallery/ later
-import bhelImg1 from "../../../imageAssets/IMG-20211116-WA0030(1).jpg.jpeg";
-import bhelImg2 from "../../../imageAssets/IMG-20211116-WA0032(2).jpg.jpeg";
-import bhelImg3 from "../../../imageAssets/IMG_20211016_123409(1).jpg.jpeg";
-
-const galleryImages = [
-  { src: bhelImg1, alt: "BHEL Governor Retrofit Initial Phase", category: "Installation", span: "wide" as const },
-  { src: bhelImg2, alt: "Woodward 505E Replacement View", category: "System Integration" },
-  { src: bhelImg3, alt: "Steam Turbine Setup", category: "Commissioning", span: "tall" as const },
-];
+// Import the 3 uploaded governor retrofit images
+import govImg1 from "../../../imageAssets/gov1.png";
+import govImg2 from "../../../imageAssets/gov2.JPG";
+import govImg3 from "../../../imageAssets/gov3.jpg";
 
 const bhelFAQs = [
-  { question: "What BHEL turbine models are compatible with the DTG-3000?", answer: "The DTG-3000 series covers BHEL units from 30 MW to 500 MW including KWU design, indigenous, and Alstom-licensed models. Units with Woodward 505E, BHEL indigenous, and Alstom Alspa governor systems are fully supported. For 660 MW supercritical units with Siemens T3000, a custom assessment is required." },
-  { question: "How long does a governor retrofit take?", answer: "Emergency deployments are completed in 48 hours including Factory Acceptance Testing (FAT), on-site installation, and load testing. Planned installations during scheduled outages typically take 3-5 days including comprehensive performance verification." },
-  { question: "Can you retain the existing actuator linkage?", answer: "Yes. The DTG-3000 is designed as a drop-in replacement. We retain existing actuator linkages and mechanical interfaces to minimize outage duration. Only the electronic governor module and associated wiring are replaced." },
-  { question: "What is the typical improvement in load stability?", answer: "Post-retrofit load stability typically improves to +/-0.5% from the common pre-retrofit range of +/-2-5%. Governor response time improves from 500-800ms (Woodward 505E) to 120ms with the DTG-3000." },
-  { question: "Do you provide post-retrofit support?", answer: "Yes. Every retrofit includes 12 months of warranty support, remote monitoring capability, and 24/7 emergency callback. We also offer 5-year LTSA packages that include quarterly preventive maintenance visits." },
-  { question: "What certifications does Texron hold?", answer: "Texron is ISO 9001:2015 certified, BHEL approved as a retrofit partner, and registered as an NTPC vendor. Our DTG-3000 series has been successfully deployed in NTPC, KPCL, TANGEDCO, and private sector plants." },
+  {
+    question: "What is a Steam Turbine Governor Retrofit?",
+    answer:
+      "A Steam Turbine Governor Retrofit is the modernization or replacement of an existing turbine governing and control system with an advanced digital or electro-hydraulic solution to improve reliability, performance, maintainability, and operational flexibility.",
+  },
+  {
+    question: "Why should I retrofit my turbine governor?",
+    answer:
+      "Governor retrofit helps overcome obsolete control systems and unavailable spares, frequent trips and unstable operation, hydraulic leakage and actuator issues, poor speed and load control accuracy, difficult integration with modern DCS platforms, and increased maintenance requirements.",
+  },
+  {
+    question: "When is the right time to perform a governor retrofit?",
+    answer:
+      "Retrofit is typically recommended when turbine operation exceeds 15–25 years, governor failures become repetitive, speed fluctuations or load hunting occur, major overhaul or RLA activities are planned, or OEM support becomes unavailable.",
+  },
+  {
+    question: "Which governor systems can be upgraded?",
+    answer:
+      "Our retrofit solutions support mechanical-hydraulic governors, electro-hydraulic governing systems (EHG), analog governor controls, digital governor systems, and legacy and custom-built turbine control systems.",
+  },
+  {
+    question: "Is complete turbine replacement required?",
+    answer:
+      "No. Governor retrofit upgrades only the governing and control package while retaining major turbine components wherever feasible, minimizing downtime and capital expenditure.",
+  },
+  {
+    question: "What is included in the retrofit scope?",
+    answer:
+      "Mechanical scope includes actuators, servo valves, hydraulic power unit, mechanical linkages, trip block, and oil piping. Electrical and controls scope includes governor controller, PLC/DCS integration, HMI interface, speed sensors, protection logic, and communication modules.",
+  },
+  {
+    question: "Can you retrofit multi-brand OEM turbines?",
+    answer:
+      "Yes. Our retrofit solutions are engineered for multiple OEM turbine platforms and legacy configurations to provide seamless modernization and long-term support.",
+  },
+  {
+    question: "Will retrofit improve turbine performance?",
+    answer:
+      "Typical benefits include improved speed stability, better load response, enhanced overspeed protection, higher operational reliability, reduced maintenance effort, and improved startup performance.",
+  },
+  {
+    question: "Does retrofit require turbine shutdown?",
+    answer:
+      "Yes. Installation and commissioning are normally completed during planned maintenance outages or scheduled shutdown periods.",
+  },
+  {
+    question: "Can the retrofit integrate with our existing DCS?",
+    answer:
+      "Yes. Integration options commonly include Modbus TCP/IP, Modbus RTU, Profibus, Profinet, OPC UA, and Ethernet/IP.",
+  },
+  {
+    question: "What service life can be expected after retrofit?",
+    answer:
+      "A professionally executed governor retrofit can extend turbine operational life by 10–20+ years, supported by preventive maintenance and periodic system updates.",
+  },
 ];
 
-const compatibilityData = [
-  { model: "BHEL 30 MW (KWU Design)", vintage: "1985-1995", governor: "Woodward 505E", status: "Fully Compatible", retrofit: "DTG-3000A" },
-  { model: "BHEL 60 MW", vintage: "1990-2000", governor: "Woodward 505/505E", status: "Fully Compatible", retrofit: "DTG-3000A" },
-  { model: "BHEL 110 MW", vintage: "1988-2005", governor: "BHEL Indigenous", status: "Fully Compatible", retrofit: "DTG-3000B" },
-  { model: "BHEL 120 MW", vintage: "1992-2005", governor: "Woodward 505E", status: "Fully Compatible", retrofit: "DTG-3000B" },
-  { model: "BHEL 210 MW", vintage: "1990-2010", governor: "Woodward 505E/EHG", status: "Fully Compatible", retrofit: "DTG-3000C" },
-  { model: "BHEL 250 MW (Alstom)", vintage: "2000-2012", governor: "Alstom Alspa", status: "Adapter Required", retrofit: "DTG-3000C+" },
-  { model: "BHEL 500 MW", vintage: "1995-2015", governor: "Siemens/Woodward", status: "Contact Engineering", retrofit: "Custom" },
-  { model: "BHEL 660 MW (Supercritical)", vintage: "2010-Present", governor: "Siemens T3000", status: "Assessment Required", retrofit: "Custom" },
+const retrofitCrossReference = [
+  {
+    type: "SUB 1MW DRIVE APPLICATION TURBINES",
+    category: "NON-CRITICAL OEM/NON-OEM TURBINES",
+    texronSolution: "RETROFITS WITH SIMPLE ELECTRONIC CONTROLLER AND PNEUMATIC ACTUATORS",
+    expectedOutcome: "COST EFFECTIVE AND RELIABLE",
+  },
+  {
+    type: "SMALL AND MEDIUM POWER TURBINES, TURBO-COMPRESSORS & TURBO-BLOWERS (3-35MW)",
+    category: "TYPICALLY 15 YEAR & OLDER, PURCHASED/SHIPPED FROM ABROAD, WITH NO OEM SUPPORT, ETC. (EG.: ABB, ALSTOM, PB, ANSALDO, BORSIG & ENGLISH ELECTRIC)",
+    texronSolution: "HYDROMECHANICAL/ELECTRO HYDRAULIC ACTUATORS SUITABLE TO EXISTING CONTROL OIL, PRE-PACKAGED ELECTRONIC GOVERNORS (EG.: WOODWARD, VOITH, DEIF, HEINZMANN, TRISEN, ETC.) WITH MINOR MODIFICATIONS",
+    expectedOutcome: "SHORTER LEAD TIME FOR SUPPLY & SERVICE BACKED WITH RELIABLE AFTER SALE SUPPORT",
+  },
+  {
+    type: "LARGER UTILITY TURBINES (40MW & ABOVE)",
+    category: "TYPICALLY OWNED BY PSU & ENERGY BASED PRIVATE SECTORS",
+    texronSolution: "COMPLETE CUSTOMISED SOLUTION FROM CONCEPT TO COMMISSIONING TYPICALLY HIGH PRESSURE HYDRAULIC SYSTEM, DCS BASED PROGRAMMED GOVERNOR AND INTEGRATED BOP SYSTEM",
+    expectedOutcome: "TAILOR MADE UPGRADATION TO MEET EFFICIENT OPERATION",
+  },
+  {
+    type: "SAFETY PROTECTION UPGRADES",
+    category: "IMPROVED SAFETY & IMPLEMENTING HIGHER STANDARDS (EG.: API)",
+    texronSolution: "IMPLEMENTING 2 OO 3 LOGICS BY ADDING FIELD INSTRUMENTS, MODIFICATION IN TURBINE PROTECTION LOGICS, OVERSPEED PROTECTION SYSTEMS AND PROVIDING TRIP BLOCK WITH 2 OO 3 VOTING LOGIC",
+    expectedOutcome: "MEETING RELIABLE OPERATION & SAFETY WITH HIGHER STANDARDS",
+  },
 ];
 
 export function BhelRetrofitsPage() {
@@ -53,44 +104,24 @@ export function BhelRetrofitsPage() {
         <div className="site-shell">
           <Breadcrumb items={[
             { label: "Expertise", path: "/expertise" },
-            { label: "BHEL Steam Turbine Governor Retrofits" },
+            { label: "Steam Turbine Governor Retrofits and Upgradations" },
           ]} />
           <h1 className="text-[28px] md:text-[38px] leading-tight mb-3 text-white">
-            BHEL Steam Turbine Governor Retrofits
+             Steam Turbine Governor Retrofits and Upgradations
           </h1>
           <p className="text-white/60 text-[15px] max-w-3xl mb-6">
-            Drop-in digital governor replacements for BHEL steam turbines from 30 MW to 500 MW.
-            Compatible with Woodward 505E, BHEL indigenous, and Alstom Alspa systems.
-            On-site commissioning within 48 hours for emergency deployments.
+           High-precision digital governor retrofits for 30–500 MW steam turbines,
+            custom-designed to seamlessly replace Woodward, Alstom, and indigenous systems.
+             Engineered for rapid deployment with emergency on-site commissioning within 48 hours.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="tel:+918904017774" className="flex items-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-5 py-2.5 rounded-lg transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="text-[13px]">Discuss Your BHEL Unit</span>
+              <span className="text-[13px]">Discuss Your Unit</span>
             </a>
             <Link to="/contact" className="flex items-center gap-2 border border-white/30 hover:bg-white/10 text-white px-5 py-2.5 rounded-lg transition-colors">
               <span className="text-[13px]">Request Retrofit Assessment</span>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Specs */}
-      <section className="bg-white border-b border-[#E8EAED]">
-        <div className="site-shell py-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            {[
-              { value: "120ms", label: "Response Time" },
-              { value: "+/-0.5%", label: "Load Stability" },
-              { value: "48hr", label: "Emergency Install" },
-              { value: "200+", label: "Units Retrofitted" },
-              { value: "18 mo", label: "Avg. Zero-Trip Record" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-[var(--font-mono)] text-[22px] text-[#1E3A5F]">{stat.value}</p>
-                <p className="text-[11px] text-[#5A6B7D]">{stat.label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -102,53 +133,63 @@ export function BhelRetrofitsPage() {
             Field Implementation
           </h2>
           <h3 className="text-[#1E3A5F] text-[24px] mb-1">
-            BHEL Retrofit Project Gallery
+             Retrofit Project Gallery
           </h3>
           <p className="text-[13px] text-[#5A6B7D] mb-6">
             On-site photographic documentation of our recent digital governor upgrades.
           </p>
-          <FluidGallery images={galleryImages} className="mb-16" />
+
+          {/* 2 Images below the gallery heading */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+              <img
+                src={govImg1}
+                alt="Woodward Governor Actuator Installation on Steam Turbine"
+                className="w-full h-[280px] object-cover"
+              />
+              <div className="p-3 bg-white">
+                <p className="text-[12px] text-[#5A6B7D]">Woodward Governor Actuator — Field Installation</p>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+              <img
+                src={govImg2}
+                alt="7MW Turbine Control Panel with Digital Governor 505D"
+                className="w-full h-[280px] object-cover"
+              />
+              <div className="p-3 bg-white">
+                <p className="text-[12px] text-[#5A6B7D]">7MW Turbine Control Panel — Digital Governor 505D</p>
+              </div>
+            </div>
+          </div>
 
           <h2 className="font-[var(--font-mono)] text-[12px] tracking-[0.2em] text-[#FF6B35] uppercase mb-2">
-            Compatibility
+            Retrofit Coverage
           </h2>
           <h3 className="text-[#1E3A5F] text-[24px] mb-1">
-            BHEL Turbine Model Cross-Reference
+             Turbine Retrofit & Upgrade Cross Reference
           </h3>
           <p className="text-[13px] text-[#5A6B7D] mb-6">
-            Immediate compatibility verification for your specific BHEL unit model and vintage.
+            Quick-fit view of Textron retrofit solutions matched to turbine type, category, and expected operational outcome.
           </p>
 
           <div className="bg-white rounded-xl border border-[#E8EAED] overflow-x-auto">
             <table className="w-full min-w-[700px]">
               <thead>
                 <tr className="bg-[#1E3A5F] text-white">
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">BHEL MODEL</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">VINTAGE</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">EXISTING GOVERNOR</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">STATUS</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">TEXRON RETROFIT</th>
+                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">TYPE</th>
+                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">CATEGORY</th>
+                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">TEXRON SOLUTION</th>
+                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">EXPECTED OUTCOME</th>
                 </tr>
               </thead>
               <tbody>
-                {compatibilityData.map((row, i) => (
-                  <tr key={row.model} className={`${i % 2 === 0 ? "bg-white" : "bg-[#F5F5F5]/50"} hover:bg-blue-50/30`}>
-                    <td className="px-4 py-3 text-[13px] text-[#1E3A5F]">{row.model}</td>
-                    <td className="px-4 py-3 font-[var(--font-mono)] text-[12px] text-[#5A6B7D]">{row.vintage}</td>
-                    <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.governor}</td>
-                    <td className="px-4 py-3">
-                      <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-[var(--font-mono)] ${
-                        row.status === "Fully Compatible"
-                          ? "bg-green-100 text-green-700"
-                          : row.status === "Adapter Required"
-                          ? "bg-[#FF6B35]/10 text-[#FF6B35]"
-                          : "bg-blue-100 text-blue-700"
-                      }`}>
-                        {row.status === "Fully Compatible" && <Check className="w-3 h-3" />}
-                        {row.status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 font-[var(--font-mono)] text-[12px] text-[#1E3A5F]">{row.retrofit}</td>
+                {retrofitCrossReference.map((row, i) => (
+                  <tr key={row.type} className={`${i % 2 === 0 ? "bg-white" : "bg-[#F5F5F5]/50"} hover:bg-blue-50/30`}>
+                    <td className="px-4 py-3 text-[13px] text-[#1E3A5F] font-medium">{row.type}</td>
+                    <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.category}</td>
+                    <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.texronSolution}</td>
+                    <td className="px-4 py-3 text-[12px] text-[#1E3A5F] font-medium">{row.expectedOutcome}</td>
                   </tr>
                 ))}
               </tbody>
@@ -171,8 +212,8 @@ export function BhelRetrofitsPage() {
               <div className="space-y-6">
                 {[
                   { step: "01", title: "Site Survey & Compatibility Assessment", desc: "Our engineers verify existing governor model, actuator linkage, and control panel interface. Usually completed in 1 day." },
-                  { step: "02", title: "DTG-3000 Configuration & FAT", desc: "Pre-configured and factory-tested to match your turbine's operating parameters. PID values pre-tuned from our database of 200+ BHEL units." },
-                  { step: "03", title: "On-Site Installation & Commissioning", desc: "Hot-cutover during planned maintenance window. Emergency installations completed in 48 hours including load testing." },
+                  { step: "02", title: "Detailed Engineering and Manufacturing", desc: "Pre-configured and factory-tested to match your turbine's operating parameters. PID values pre-tuned from our database of 200+ units." },
+                  { step: "03", title: "On-Site Installation & Commissioning", desc: "Planned-Scheduled installation  time with stipulated timelines." },
                   { step: "04", title: "Performance Verification & Handover", desc: "Load ramp testing, step response verification, and protection coordination check. Complete documentation package delivered." },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
@@ -189,10 +230,17 @@ export function BhelRetrofitsPage() {
             </div>
 
             <div className="space-y-6">
-              <PhotoPlaceholder
-                directive="Split-screen Before/After of a legacy governor retrofit - corroded Woodward 505E vs. new DTG-3000 installed"
-                fallbackImage="https://images.unsplash.com/photo-1720670996872-370771b91159?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVybWFsJTIwcG93ZXIlMjBwbGFudCUyMHN0ZWFtJTIwdHVyYmluZSUyMGVuZ2luZWVyaW5nfGVufDF8fHx8MTc3MzExNjk5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-              />
+              {/* 1 Image on the right side of Retrofit Process */}
+              <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+                <img
+                  src={govImg3}
+                  alt="Electro-Hydraulic Actuator and Valve Assembly"
+                  className="w-full h-[320px] object-cover"
+                />
+                <div className="p-3 bg-white">
+                  <p className="text-[12px] text-[#5A6B7D]">Electro-Hydraulic Actuator — Field Assembly</p>
+                </div>
+              </div>
 
               <div className="bg-[#F5F5F5] rounded-xl p-5">
                 <h4 className="font-[var(--font-mono)] text-[11px] tracking-wider text-[#1E3A5F]/50 mb-3">ENGAGEMENT MODEL</h4>
@@ -213,18 +261,18 @@ export function BhelRetrofitsPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* Bottom CTA — Fixed alignment for content and buttons */}
       <section className="py-12 bg-[#1E3A5F] text-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-[24px] mb-3">Need a Governor Retrofit for Your BHEL Unit?</h2>
-          <p className="text-white/60 text-[14px] mb-6">
-            Tell us your turbine model and vintage. We'll confirm compatibility and quote within 24 hours.
+        <div className="max-w-3xl mx-auto px-4 text-center flex flex-col items-center justify-center">
+          <h2 className="text-[24px] mb-3 font-semibold">Need a Multibrand Governor Retrofit for Your Unit?</h2>
+          <p className="text-white/60 text-[14px] mb-6 max-w-xl">
+            Tell us your turbine model and vintage. We'll confirm compatibility and quote <br></br> within 24 hours.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <a href="tel:+918904017774" className="flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-6 py-3 rounded-lg transition-colors">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+            <a href="tel:+918904017774" className="flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-6 py-3 rounded-lg transition-colors w-full sm:w-auto font-semibold">
               <Phone className="w-4 h-4" /> Call Now
             </a>
-            <Link to="/contact" className="flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-lg transition-colors">
+            <Link to="/contact" className="flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-lg transition-colors w-full sm:w-auto font-semibold">
               Request Retrofit Quote <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -233,13 +281,10 @@ export function BhelRetrofitsPage() {
 
       {/* FAQ */}
       <FAQ
-        title="BHEL Governor Retrofit FAQ"
+        title="Multibrand Governor Retrofit FAQ"
         subtitle="Common questions from plant managers and procurement officers"
         items={bhelFAQs}
       />
-
-      {/* Timestamp */}
-      <PageTimestamp lastUpdated="February 2026" nextAudit="Q2 2026" />
     </div>
   );
 }

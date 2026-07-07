@@ -74,11 +74,11 @@ const products: Record<string, ProductData> = {
       { label: "Operating Temp", value: "-5 to 55°C" },
     ],
     applications: [
-      "Generator protection - differential, overcurrent, REF, stator earth fault",
-      "Legacy relay replacement - Crompton Greaves CDG series, Siemens 7SJ/7UT drop-in",
-      "Switchgear retrofit - custom CT ratio mapping for existing HT switchgear panels",
-      "Remote monitoring - IEC 61850 and Modbus for SCADA integration",
-      "Hot-cutover capability - installation during planned maintenance without extended shutdown",
+      "Generator protection:  differential, overcurrent, REF, stator earth fault",
+      "Legacy relay replacement:  Crompton Greaves CDG series, Siemens 7SJ/7UT drop-in",
+      "Switchgear retrofit: custom CT ratio mapping for existing HT switchgear panels",
+      "Remote monitoring:  IEC 61850 and Modbus for SCADA integration",
+      "Hot-cutover capability:  installation during planned maintenance without extended shutdown",
     ],
     compatibility: [
       { oem: "Crompton Greaves", status: "full", notes: "CDG/CAG series direct replacement" },
@@ -141,6 +141,12 @@ const defaultProduct: ProductData = {
   compatibility: [],
   documents: [],
 };
+
+
+
+
+
+
 
 const statusIcon = (s: CompatStatus) => {
   switch (s) {
@@ -268,7 +274,7 @@ export function ProductDetailPage() {
         <div className="site-shell">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-[var(--font-heading)] text-[24px] leading-tight mb-3">Need This Product for Your Plant?</h2>
-            <p className="text-white/70 text-[14px] leading-relaxed max-w-xl mx-auto mb-6">Share your OEM model and vintage - we'll confirm compatibility within 24 hours.</p>
+            <p className="text-white/70 text-[14px] leading-relaxed max-w-xl mx-auto mb-6">Share your OEM model and vintage : we'll confirm compatibility within 24 hours.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <a href="tel:+918904017774" className="flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-6 py-3 rounded-lg transition-colors">
                 <Phone className="w-4 h-4" /> Call Now

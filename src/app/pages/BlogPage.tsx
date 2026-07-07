@@ -15,7 +15,7 @@ const blogPosts: BlogPost[] = [
   {
     id: "steam-turbine-overhaul-signs",
     title: "5 Signs Your Steam Turbine Needs an Overhaul (And What to Do About It)",
-    metaDesc: "Worried your steam turbine isn't performing at its best? Here are 5 clear warning signs it's time for a professional overhaul - and how Texron Power can help.",
+    metaDesc: "Worried your steam turbine isn't performing at its best? Here are 5 clear warning signs it's time for a professional overhaul  and how Texron Power can help.",
     readTime: "4 minutes",
     category: "Maintenance Tips",
     content: (
@@ -50,7 +50,7 @@ const blogPosts: BlogPost[] = [
   {
     id: "electronic-governor-retrofit",
     title: "Electronic Governor Retrofit for Steam Turbines: What It Is and Why It's Worth It",
-    metaDesc: "Thinking about upgrading your steam turbine's governor system? Learn how an electronic governor retrofit improves speed control, reliability, and efficiency - and what the process involves.",
+    metaDesc: "Thinking about upgrading your steam turbine's governor system? Learn how an electronic governor retrofit improves speed control, reliability, and efficiency. ",
     readTime: "5 minutes",
     category: "Technology & Upgrades",
     content: (
@@ -83,8 +83,8 @@ const blogPosts: BlogPost[] = [
   },
   {
     id: "rla-study-generator",
-    title: "What Is an RLA Study for a Generator - And Does Your Plant Need One?",
-    metaDesc: "An RLA (Remaining Life Assessment) study tells you exactly how much service life is left in your generator. Find out what's involved, when to commission one, and what the results mean for your plant.",
+    title: "What Is an RLA Study for a turbine  Generator - And Does Your Plant Need One?",
+    metaDesc: "An RLA study tells you exactly how much service life is left in your generator. Find out what's involved, when to commission one, and what the results mean for your plant.",
     readTime: "4 minutes",
     category: "Plant Management",
     content: (

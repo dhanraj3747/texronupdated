@@ -26,7 +26,7 @@ export function ServicesPage() {
        title: "Erection & Commissioning",
        subtitle: "Getting It Right the First Time",
       detailPath: "/services/erection-commissioning-testing",
-       desc: "The commissioning phase is where careful planning meets real-world execution. Our experienced engineers have commissioned over 60 power plant projects - from small 3 MW captive plants to 130 MW utility installations.",
+       desc: "The commissioning phase is where careful planning meets real-world execution. Our experienced engineers have commissioned over 100+ power plant projects  from small 3 MW captive plants to 75 MW utility installations.",
        bullets: [
          "Civil coordination and equipment positioning",
          "Mechanical alignment, coupling, and piping connections",
@@ -52,10 +52,10 @@ export function ServicesPage() {
     {
        id: "rla",
        icon: FileSearch,
-       title: "RLA Study of Generators",
-       subtitle: "Know What Your Generator Has Left",
+       title: "RLA Study of turbine  Generators",
+       subtitle: "Know What Your turbine Generator Has Left",
       detailPath: "/rla-studies-thermal-power-plants-bangalore",
-       desc: "A Remaining Life Assessment (RLA) gives you a data-driven view of your generator's health and remaining operational life. This is especially valuable for units that have been in service for 15+ years or have experienced abnormal operating conditions.",
+       desc: "A Remaining Life Assessment (RLA) gives you a data-driven view of your turbine and  generator's health and remaining operational life. This is especially valuable for units that have been in service for 15+ years or have experienced abnormal operating conditions.",
        bullets: [
          "Insulation resistance and polarization index testing",
          "Winding temperature and resistance checks",
@@ -98,7 +98,7 @@ export function ServicesPage() {
   const secondaryServices = [
     {
       id: "gearbox",
-      title: "Gearbox Re-Engineering",
+      title: "Gearbox Spares",
       icon: Cog,
       lane: "Mechanical Recovery",
       desc: "We handle everything from gearbox inspection and repair to complete re-engineering for changed operating conditions.",
@@ -110,7 +110,7 @@ export function ServicesPage() {
       title: "TG Set Relocation",
       icon: Truck,
       lane: "Heavy Relocation",
-      desc: "Moving a turbogenerator set is a complex undertaking. We manage disassembly, transportation, and re-commissioning.",
+      desc: "Texron offer a special service i.e. re-location of TC set and its Accessories. We involved in many re-location projects from Europe to other Asian and African countries.",
       layout: "lg:col-span-4 lg:col-start-9 lg:row-start-1",
       tone: "dark" as const,
     },
@@ -119,7 +119,7 @@ export function ServicesPage() {
       title: "Troubleshooting",
       icon: AlertTriangle,
       lane: "Fault Diagnostics",
-      desc: "When your turbine is behaving oddly, our troubleshooting team gets to the bottom of it quickly with diagnostic tools.",
+      desc: "                Restoration of machine into production comes with fastest availability of troubleshooting with enough knowledge. Our wide experience and exposure in various technical aspects in and around the power provides high standard guidelines for troubleshooting and arriving the best solutions.",
       layout: "lg:col-span-4 lg:col-start-1 lg:row-start-2",
       tone: "light" as const,
     },

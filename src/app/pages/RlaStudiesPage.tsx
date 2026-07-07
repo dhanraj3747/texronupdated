@@ -2,23 +2,14 @@ import { Link } from "react-router";
 import { CheckCircle, Shield, Phone, ArrowRight, FileSearch, ArrowDown } from "lucide-react";
 import { SEO } from "../seo/SEO";
 import { Breadcrumb } from "../components/Breadcrumb";
-import { PageTimestamp } from "../components/PageTimestamp";
-import { FluidGallery } from "../components/ui/fluid-gallery";
 
-// Temporary imports from raw workspace assets - to be migrated to /public/assets/gallery/ later
-import rlaImg1 from "../../../imageAssets/IMG-20191105-WA0059.jpg.jpeg";
-import rlaImg2 from "../../../imageAssets/IMG-20191105-WA0064.jpg.jpeg";
-import rlaImg3 from "../../../imageAssets/IMG-20191105-WA0041.jpg.jpeg";
-
-const galleryImages = [
-  { src: rlaImg1, alt: "Turbine Core Inspection", category: "Condition Assessment", span: "wide" as const },
-  { src: rlaImg2, alt: "Insulation Resistance Testing", category: "Diagnostics" },
-  { src: rlaImg3, alt: "Partial Discharge Analysis Setup", category: "RLA Study", span: "tall" as const },
-];
+// Import the 2 uploaded RLA images
+import rlaImg1 from "../../../imageAssets/rla1.jpg";
+import rlaImg2 from "../../../imageAssets/generator RLA2.jpg";
 
 export function RlaStudiesPage() {
   return (
-    <div>
+    <div className="bg-white min-h-screen font-sans">
       <SEO 
         title="RLA Studies for Thermal Power Plants | Texron Power Bengaluru" 
         description="Comprehensive Remaining Life Assessment (RLA) studies and condition assessment for generators and turbines across India. Data-driven diagnostics by Texron." 
@@ -34,7 +25,7 @@ export function RlaStudiesPage() {
             Remaining Life Assessment (RLA)
           </h1>
           <p className="text-white/80 text-[18px] max-w-3xl mb-8 leading-relaxed">
-            Data-driven evaluation of your generator's health and remaining operational life. Specially tailored for units in service for 15+ years or exposed to abnormal operating conditions.
+            Data-driven evaluation of your turbine and generator's health and remaining operational life. Specially tailored for units in service for 15+ years or exposed to abnormal operating conditions.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="tel:+918904017774" className="flex items-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-5 py-3 rounded-lg transition-colors font-semibold">
@@ -56,10 +47,10 @@ export function RlaStudiesPage() {
               Why Commission an RLA?
             </h2>
             <h3 className="text-[#1E3A5F] text-[28px] font-semibold mb-6">
-              Know What Your Generator Has Left
+              Know What Your Turbine and Generator Has Left
             </h3>
             <p className="text-[#5A6B7D] text-[15px] mb-6 leading-relaxed">
-              Your generator has been running reliably for decades. But how much longer can you count on it? Are there hidden problems developing that could cause an unexpected failure? An RLA provides a structured technical evaluation to give you an accurate, evidence-based picture of your equipment's condition.
+              Your turbine and generator has been running reliably for decades. But how much longer can you count on it? Are there hidden problems developing that could cause an unexpected failure? An RLA provides a structured technical evaluation to give you an accurate, evidence-based picture of your equipment's condition.
             </p>
             <h4 className="font-semibold text-[#1A2A3A] text-[16px] mb-4">When to Schedule:</h4>
             <ul className="space-y-3 text-[14px] text-[#5A6B7D]">
@@ -103,7 +94,30 @@ export function RlaStudiesPage() {
           <p className="text-[13px] text-[#5A6B7D] mb-6">
             Visual breakdown of our on-site condition assessment and high-voltage testing procedures.
           </p>
-          <FluidGallery images={galleryImages} />
+
+          {/* 2 Images below RLA Testing in Action */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+              <img
+                src={rlaImg1}
+                alt="Turbine Core Inspection and Condition Assessment"
+                className="w-full h-[280px] object-cover"
+              />
+              <div className="p-3 bg-white">
+                <p className="text-[12px] text-[#5A6B7D]">Turbine Core Inspection — On-Site Condition Assessment</p>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+              <img
+                src={rlaImg2}
+                alt="Generator Diagnostic Testing with Oscilloscope"
+                className="w-full h-[280px] object-cover"
+              />
+              <div className="p-3 bg-white">
+                <p className="text-[12px] text-[#5A6B7D]">Generator Diagnostic Testing — Field Instrumentation</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -111,7 +125,7 @@ export function RlaStudiesPage() {
          <div className="max-w-2xl mx-auto px-4">
             <h3 className="text-[24px] font-semibold mb-4">Receive a Comprehensive Report</h3>
             <p className="text-white/70 text-[15px] mb-8">
-               You receive a detailed written report with the findings from every test, an assessment of remaining life, and specific recommendations - paving the way for continued operation, targeted refurbishment, or replacement.
+               You receive a detailed written report with the findings from every test, an assessment of remaining life, and specific recommendations: paving the way for continued operation, targeted refurbishment, or replacement.
             </p>
             <Link to="/contact" className="inline-block bg-[#FF6B35] hover:bg-[#e55a2a] px-8 py-3 rounded text-white font-semibold transition-colors">
                Schedule an RLA Study
@@ -119,7 +133,8 @@ export function RlaStudiesPage() {
          </div>
       </section>
 
-      <PageTimestamp lastUpdated="March 2026" nextAudit="Q3 2026" />
+      {/* Structured spacer wrapper matching the layout height exactly with a clean white background */}
+      <div className="bg-white py-10" />
     </div>
   );
 }

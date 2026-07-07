@@ -27,8 +27,8 @@ const pillars: BusinessPillar[] = [
     icon: Box,
     title: "Engineered Products",
     description:
-      "13 product lines — governors, protection relays, actuators, and control panels. Drop-in replacements for legacy OEM systems.",
-    ctaText: "View Product Catalog",
+      "Comprehensive range of engineered products including governors, actuators, protection relays, and control panels built for precision, reliability, and demanding industrial applications..",
+    ctaText: "View Products",
     ctaLink: "/products",
   },
   {

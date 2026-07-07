@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router";
 import {
-  Check,
   ArrowRight,
   Phone,
   CheckCircle
@@ -10,12 +9,11 @@ import { Breadcrumb } from "../components/Breadcrumb";
 import { FAQ } from "../components/FAQ";
 import { PageTimestamp } from "../components/PageTimestamp";
 import { PhotoPlaceholder } from "../components/PhotoPlaceholder";
-import { FluidGallery } from "../components/ui/fluid-gallery";
 import { serviceDetailPages } from "../content/serviceDetailPages";
 
-import overhaulingImg1 from "../../../imageAssets/IMG-20211116-WA0030(1).jpg.jpeg";
-import overhaulingImg2 from "../../../imageAssets/IMG-20211116-WA0046(2).jpg.jpeg";
-import overhaulingImg3 from "../../../imageAssets/Blade carriers dismantling1.jpg.jpeg";
+import overhaulingImg1 from "../../../imageAssets/over1.jpg";
+import overhaulingImg2 from "../../../imageAssets/over2.jpg";
+import overhaulingImg3 from "../../../imageAssets/over3.jpeg";
 
 import commissioningImg1 from "../../../imageAssets/IMG-20211124-WA0037.jpg.jpeg";
 import commissioningImg2 from "../../../imageAssets/IMG20230518121818.jpg.jpeg";
@@ -31,7 +29,15 @@ import refurbishmentImg3 from "../../../imageAssets/IMG20230614152939.jpg.jpeg";
 
 import ltsaImg1 from "../../../imageAssets/IMG-20211123-WA0030(2).jpg.jpeg";
 import ltsaImg2 from "../../../imageAssets/IMG-20211123-WA0033(2).jpg.jpeg";
-import ltsaImg3 from "../../../imageAssets/IMG20241020161353.jpg.jpeg";
+import ltsaImg3 from "../../../imageAssets/ltsa (3).png";
+
+// ── Additional Service Images ──
+import ltsaGalleryImg from "../../../imageAssets/ltsa (3).png";
+import ltsaPhotoImg from "../../../imageAssets/LTSA.png";
+import erectionGalleryImg1 from "../../../imageAssets/erection.jpeg";
+import erectionGalleryImg2 from "../../../imageAssets/Erection_Commissioning2.png";
+import erectionPhotoImg from "../../../imageAssets/service-side.png";
+import epcGalleryImg from "../../../imageAssets/EPC.png";
 
 const serviceImageRegistry: Record<string, string> = {
   overhaulingImg1,
@@ -48,20 +54,14 @@ const serviceImageRegistry: Record<string, string> = {
   refurbishmentImg3,
   ltsaImg1,
   ltsaImg2,
-  ltsaImg3
+  ltsaImg3,
+  ltsaGalleryImg,
+  ltsaPhotoImg,
+  erectionGalleryImg1,
+  erectionGalleryImg2,
+  erectionPhotoImg,
+  epcGalleryImg,
 };
-
-function statusToneClass(tone: "green" | "amber" | "blue") {
-  if (tone === "green") {
-    return "bg-green-100 text-green-700";
-  }
-
-  if (tone === "amber") {
-    return "bg-[#FF6B35]/10 text-[#FF6B35]";
-  }
-
-  return "bg-blue-100 text-blue-700";
-}
 
 export function ServiceDetailPage() {
   const { serviceSlug } = useParams();
@@ -92,7 +92,6 @@ export function ServiceDetailPage() {
       src: serviceImageRegistry[image.imageId] ?? "",
       alt: image.alt,
       category: image.category,
-      span: image.span
     }))
     .filter((image) => image.src.length > 0);
 
@@ -100,6 +99,7 @@ export function ServiceDetailPage() {
     <div>
       <SEO title={content.seoTitle} description={content.seoDescription} />
 
+      {/* Hero */}
       <section className="bg-[#1E3A5F] text-white py-12">
         <div className="site-shell">
           <Breadcrumb
@@ -130,71 +130,102 @@ export function ServiceDetailPage() {
         </div>
       </section>
 
-      <section className="bg-white border-b border-[#E8EAED]">
-        <div className="site-shell py-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            {content.keyStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="font-[var(--font-mono)] text-[22px] text-[#1E3A5F]">{stat.value}</p>
-                <p className="text-[11px] text-[#5A6B7D]">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+
+{/* Stats */}
+<section className="bg-white border-b border-[#E8EAED]">
+  <div className="site-shell py-8">
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8 sm:gap-4">
+      {content.keyStats.map((stat) => (
+        <div key={stat.label} className="flex-1 text-left sm:text-center min-w-[140px]">
+          <p className="font-[var(--font-mono)] text-[28px] sm:text-[32px] text-[#1E3A5F] font-semibold leading-tight">
+            {stat.value}
+          </p>
+          <p className="text-[12px] sm:text-[13px] text-[#5A6B7D] mt-1 leading-snug">
+            {stat.label}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+          {/* ── GALLERY + MATRIX SECTION ── */}
+      {(resolvedGalleryImages.length > 0 || (content.matrixRows && content.matrixRows.length > 0)) && (
+        <section className="py-16 bg-[#F5F5F5]">
+          <div className="site-shell">
+            {/* Gallery — only if images exist */}
+            {resolvedGalleryImages.length > 0 && (
+              <>
+                <h2 className="font-[var(--font-mono)] text-[12px] tracking-[0.2em] text-[#FF6B35] uppercase mb-2">
+                  {content.galleryKicker}
+                </h2>
+                <h3 className="text-[#1E3A5F] text-[24px] mb-1">{content.galleryTitle}</h3>
+                <p className="text-[13px] text-[#5A6B7D] mb-6">{content.galleryDescription}</p>
 
-      <section className="py-16 bg-[#F5F5F5]">
-        <div className="site-shell">
-          <h2 className="font-[var(--font-mono)] text-[12px] tracking-[0.2em] text-[#FF6B35] uppercase mb-2">
-            {content.galleryKicker}
-          </h2>
-          <h3 className="text-[#1E3A5F] text-[24px] mb-1">{content.galleryTitle}</h3>
-          <p className="text-[13px] text-[#5A6B7D] mb-6">{content.galleryDescription}</p>
-          <FluidGallery images={resolvedGalleryImages} className="mb-16" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                  {resolvedGalleryImages.map((image, index) => (
+                    <div key={index} className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-[380px] object-cover"
+                      />
+                      {image.category && (
+                        <div className="p-3 bg-white">
+                          <p className="text-[12px] text-[#5A6B7D]">{image.category}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
 
-          <h2 className="font-[var(--font-mono)] text-[12px] tracking-[0.2em] text-[#FF6B35] uppercase mb-2">
-            {content.matrixKicker}
-          </h2>
-          <h3 className="text-[#1E3A5F] text-[24px] mb-1">{content.matrixTitle}</h3>
-          <p className="text-[13px] text-[#5A6B7D] mb-6">{content.matrixDescription}</p>
+            {/* Matrix — only if rows exist */}
+            {content.matrixRows && content.matrixRows.length > 0 && (
+              <>
+                <h2 className="font-[var(--font-mono)] text-[12px] tracking-[0.2em] text-[#FF6B35] uppercase mb-2">
+                  {content.matrixKicker}
+                </h2>
+                <h3 className="text-[#1E3A5F] text-[24px] mb-1">{content.matrixTitle}</h3>
+                <p className="text-[13px] text-[#5A6B7D] mb-6">{content.matrixDescription}</p>
 
-          <div className="bg-white rounded-xl border border-[#E8EAED] overflow-x-auto">
-            <table className="w-full min-w-[780px]">
-              <thead>
-                <tr className="bg-[#1E3A5F] text-white">
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">PLANT CONTEXT</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">TYPICAL TRIGGER</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">TEXRON INTERVENTION</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">STATUS</th>
-                  <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider">EXPECTED OUTCOME</th>
-                </tr>
-              </thead>
-              <tbody>
-                {content.matrixRows.map((row, i) => (
-                  <tr
-                    key={`${row.context}-${row.trigger}`}
-                    className={`${i % 2 === 0 ? "bg-white" : "bg-[#F5F5F5]/50"} hover:bg-blue-50/30`}
-                  >
-                    <td className="px-4 py-3 text-[13px] text-[#1E3A5F]">{row.context}</td>
-                    <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.trigger}</td>
-                    <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.intervention}</td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-[var(--font-mono)] ${statusToneClass(row.tone)}`}
-                      >
-                        {row.tone === "green" && <Check className="w-3 h-3" />}
-                        {row.status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-[12px] text-[#1E3A5F]">{row.outcome}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                <div className="bg-white rounded-xl border border-[#E8EAED] overflow-x-auto">
+                  <table className="w-full min-w-[900px]">
+                    <thead>
+                      <tr className="bg-[#1E3A5F] text-white">
+                        <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider uppercase">Context</th>
+                        <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider uppercase">Trigger</th>
+                        <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider uppercase">Intervention</th>
+                        <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider uppercase">Status</th>
+                        <th className="text-left px-4 py-3 font-[var(--font-mono)] text-[11px] tracking-wider uppercase">Outcome</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {content.matrixRows.map((row, i) => (
+                        <tr key={i} className={`${i % 2 === 0 ? "bg-white" : "bg-[#F5F5F5]/50"} hover:bg-blue-50/30 border-b border-[#E8EAED]`}>
+                          <td className="px-4 py-3 text-[13px] text-[#1E3A5F] font-medium">{row.context}</td>
+                          <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.trigger}</td>
+                          <td className="px-4 py-3 text-[12px] text-[#5A6B7D]">{row.intervention}</td>
+                          <td className="px-4 py-3">
+                            <span className={`inline-block px-3 py-1 rounded-full text-[11px] font-semibold text-white ${
+                              row.tone === "green" ? "bg-green-500" : row.tone === "amber" ? "bg-amber-500" : "bg-blue-500"
+                            } whitespace-nowrap`}>
+                              {row.status}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-[12px] text-[#1E3A5F] font-medium">{row.outcome}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
+      {/* ── PROCESS SECTION ── */}
       <section className="py-16 bg-white">
         <div className="site-shell">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -221,10 +252,21 @@ export function ServiceDetailPage() {
             </div>
 
             <div className="space-y-6">
-              <PhotoPlaceholder
-                directive={content.photoDirective}
-                fallbackImage={resolvedGalleryImages[0]?.src}
-              />
+              {/* REAL IMAGE: if processImageId exists, show it. Otherwise fallback to placeholder. */}
+              {content.processImageId && serviceImageRegistry[content.processImageId] ? (
+                <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
+                  <img
+                    src={serviceImageRegistry[content.processImageId]}
+                    alt={content.processImageAlt || content.pageTitle}
+                    className="w-full h-[380px] object-cover"
+                  />
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  directive={content.photoDirective}
+                  fallbackImage={resolvedGalleryImages[0]?.src}
+                />
+              )}
 
               <div className="bg-[#F5F5F5] rounded-xl p-5">
                 <h4 className="font-[var(--font-mono)] text-[11px] tracking-wider text-[#1E3A5F]/50 mb-3">ENGAGEMENT MODEL</h4>
@@ -242,6 +284,7 @@ export function ServiceDetailPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-12 bg-[#1E3A5F] text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-[var(--font-heading)] text-[24px] leading-tight mb-3">{content.ctaTitle}</h2>

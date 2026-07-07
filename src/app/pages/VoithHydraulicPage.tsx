@@ -250,7 +250,7 @@ export function VoithHydraulicPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-[24px] mb-3">Voith Actuator Issue?</h2>
           <p className="text-white/60 text-[14px] mb-6">
-            Describe the symptoms. We'll identify the parts and quote same-day for in-stock items.
+            Describe the symptoms. We'll identify the parts and quote same day for in stock items.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a href="tel:+918904017774" className="flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a2a] text-white px-6 py-3 rounded-lg transition-colors">

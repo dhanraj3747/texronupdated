@@ -9,97 +9,118 @@ import { CubeCarousel } from "../components/ui/cube-carousel";
 import { StatsHighlights } from "../components/StatsHighlights";
 import { BusinessPillars } from "../components/BusinessPillars";
 
+
+
+// REMOVE this old import:
+// import serviceHubImage from "../../../imageAssets/IMG-20250910-WA0071.jpg.jpeg";
+
+// ADD these 6 imports (replace paths with your actual image files):
+import serviceImage1 from "../../../imageAssets/service-governor.png";
+import serviceImage2 from "../../../imageAssets/service-rla.jpeg";
+import serviceImage3 from "../../../imageAssets/service-overhauling.jpg";
+import serviceImage4 from "../../../imageAssets/ltsa (3).png";
+import serviceImage5 from "../../../imageAssets/service-commissioning.png";
+import serviceImage6 from "../../../imageAssets/service-engineering-epc.png";
+
+
 // Actual workspace assets
 import heroImage from "../../../imageAssets/hero-image.jpeg";
-import aboutImage from "../../../imageAssets/IMG-20211124-WA0018.jpg.jpeg";
+import aboutImage from "../../../imageAssets/aboutus.jpg";
 import fieldImage1 from "../../../imageAssets/home1.jpeg";
 import fieldImage2 from "../../../imageAssets/home2.jpeg";
-import fieldImage3 from "../../../imageAssets/home3.jpeg";
+import fieldImage3 from "../../../imageAssets/scroll3.jpg";
 import fieldImage4 from "../../../imageAssets/home4.jpeg";
 import fieldImage5 from "../../../imageAssets/home5.jpeg";
 import fieldImage6 from "../../../imageAssets/Blade carriers dismantling1.jpg.jpeg";
 import fieldImage7 from "../../../imageAssets/home6.jpeg";
 import fieldImage8 from "../../../imageAssets/home7.jpeg";
 import fieldImage9 from "../../../imageAssets/home8.jpeg";
-import fieldImage10 from "../../../imageAssets/home9.jpeg";
-import fieldImage11 from "../../../imageAssets/IMG-20211116-WA0032(2).jpg.jpeg";
-import fieldImage12 from "../../../imageAssets/IMG-20211116-WA0046(2).jpg.jpeg";
+import fieldImage10 from "../../../imageAssets/scroll6.jpg";
+import fieldImage11 from "../../../imageAssets/scroll1.jpg";
+import fieldImage12 from "../../../imageAssets/scroll4.jpg";
 import fieldImage13 from "../../../imageAssets/IMG20230518115721.jpg.jpeg";
-import fieldImage14 from "../../../imageAssets/IMG20240902200100.jpg.jpeg";
-import fieldImage15 from "../../../imageAssets/IMG20241020161353.jpg.jpeg";
+import fieldImage14 from "../../../imageAssets/scroll5.JPG";
+import fieldImage15 from "../../../imageAssets/scroll2.jpg";
 import fieldImage16 from "../../../imageAssets/IMG_20211202_154409.jpg.jpeg";
 import fieldImage17 from "../../../imageAssets/IMG20230518182609.jpg.jpeg";
 import serviceHubImage from "../../../imageAssets/IMG-20250910-WA0071.jpg.jpeg";
 
 const homeFieldSnapshots = [
-  { src: fieldImage1, alt: "Texron team commissioning turbine systems at site", category: "Commissioning", span: "wide" as const },
-  { src: fieldImage2, alt: "Generator and auxiliary inspection on active project", category: "Field Inspection", span: "normal" as const },
-  { src: fieldImage3, alt: "Control and protection integration at plant floor", category: "Retrofit Work", span: "tall" as const },
-  { src: fieldImage4, alt: "Turbine installation and alignment", category: "Installation", span: "wide" as const },
-  { src: fieldImage5, alt: "Comprehensive system diagnostics in progress", category: "Diagnostics", span: "normal" as const },
-  { src: fieldImage6, alt: "Heavy machinery and blade carrier dismantling", category: "Maintenance", span: "tall" as const },
-  { src: fieldImage7, alt: "Turbine rotor engineering adjustments", category: "Engineering", span: "wide" as const },
-  { src: fieldImage8, alt: "On-site safety and operational briefing", category: "Safety", span: "normal" as const },
-  { src: fieldImage9, alt: "Precision component machining", category: "Machining", span: "wide" as const },
-  { src: fieldImage10, alt: "Final stage assembling checks", category: "Assembly", span: "tall" as const },
-  { src: fieldImage11, alt: "Heavy equipment handling", category: "Handling", span: "wide" as const },
-  { src: fieldImage12, alt: "Site review overhauling", category: "Overhauling", span: "normal" as const },
-  { src: fieldImage13, alt: "Turbine structural validation", category: "Validation", span: "tall" as const },
-  { src: fieldImage14, alt: "Site final handoff", category: "Operation", span: "wide" as const },
-  { src: fieldImage15, alt: "Turbine systems tuning", category: "Tuning", span: "normal" as const },
-  { src: fieldImage16, alt: "Core equipment calibration", category: "Calibration", span: "tall" as const },
-  { src: fieldImage17, alt: "Synchronized load evaluation", category: "Testing", span: "wide" as const },
+  { src: fieldImage1, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage2, alt: "", category: "", span: "normal" as const },
+  { src: fieldImage3, alt: "", category: "", span: "tall" as const },
+  { src: fieldImage4, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage5, alt: "", category: "", span: "normal" as const },
+  { src: fieldImage6, alt: "", category: "", span: "tall" as const },
+  { src: fieldImage7, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage8, alt: "", category: "", span: "normal" as const },
+  { src: fieldImage9, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage10, alt: "", category: "", span: "tall" as const },
+  { src: fieldImage11, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage12, alt: "", category: "", span: "normal" as const },
+  { src: fieldImage13, alt: "", category: "", span: "tall" as const },
+  { src: fieldImage14, alt: "", category: "", span: "wide" as const },
+  { src: fieldImage15, alt: "", category: "", span: "normal" as const },
+  { src: fieldImage16, alt: "", category: "", span: "tall" as const },
+  { src: fieldImage17, alt: "", category: "", span: "wide" as const },
 ];
 
 type ServiceHubItem = {
   id: string;
   title: string;
   summary: string;
+   image: string; 
   hotspot: {
     top: string;
     left: string;
     size: string;
   };
 };
-
 const serviceHubItems: ServiceHubItem[] = [
+  {
+    id: "governor-retrofit",
+    title: "Governor Retrofits",
+    summary: "",
+    image: serviceImage1, // <-- image for this service
+    hotspot: { top: "42%", left: "64%", size: "146px" },
+  },
   {
     id: "rla",
     title: "RLA & Condition Assessment",
-    summary: "Insulation, core, and winding-health evaluation to quantify machine life and recommend maintenance strategy.",
+    summary: "",
+    image: serviceImage2, // <-- image for this service
     hotspot: { top: "42%", left: "64%", size: "146px" },
   },
   {
     id: "overhauling",
     title: "Overhauling",
-    summary: "Complete rotor, blade-path, and bearing-zone restoration with strict tolerance checks and performance validation.",
+    summary: "",
+    image: serviceImage3, // <-- image for this service
     hotspot: { top: "58%", left: "31%", size: "128px" },
   },
   {
     id: "ltsa",
     title: "LTSA & AMC Services",
-    summary: "Predictive maintenance cadence with performance monitoring and rapid escalation support for long-term reliability.",
+    summary: "",
+    image: serviceImage4, // <-- image for this service
     hotspot: { top: "70%", left: "68%", size: "122px" },
   },
   {
     id: "commissioning",
     title: "Erection and commissioning",
-    summary: "Cold checks to synchronized load trials ensuring reliable startup and smooth handover to operations.",
+    summary: "",
+    image: serviceImage5, // <-- image for this service
     hotspot: { top: "36%", left: "22%", size: "118px" },
   },
   {
-    id: "engineering",
-    title: "Engineering and consultancy",
-    summary: "Expert consulting on turbine modifications, optimization, and redesign support for changing process requirements.",
+    id: "engineering-epc",
+    title: "Engineering consultancy and EPC services", // <-- combined
+    summary: "",
+    image: serviceImage6, // <-- image for this service
     hotspot: { top: "48%", left: "48%", size: "136px" },
   },
-  {
-    id: "epc",
-    title: "EPC services",
-    summary: "Complete engineering, procurement, and construction services for new installations and major retrofit projects.",
-    hotspot: { top: "66%", left: "46%", size: "120px" },
-  },
 ];
+
 
 type TrustPillar = {
   id: string;
@@ -122,7 +143,7 @@ const trustPillars: TrustPillar[] = [
     kicker: "Field-Proven Delivery",
     title: "Real Experience. Real Results.",
     description:
-      "Our founders have personally led installation, commissioning, and maintenance programs from 3 MW captive units to 150 MW utility blocks across India.",
+      "Our founders have personally led installation, commissioning, and maintenance programs from 3 MW captive units to 150 MW utility blocks across India and Abroad.",
   },
   {
     id: "transparency",
@@ -226,10 +247,10 @@ export function HomePage() {
               </span>
             </h1>
             <p className="text-white/85 text-[18px] leading-8 md:leading-8 max-w-[58ch] mb-3 md:mb-4">
-              <span className="font-medium text-salience-trust">Expert turbine solutions</span> for thermal, hydro, and industrial power plants - built on decades of hands-on experience.
+              <span className="font-medium text-salience-trust">Expert turbine solutions</span> for thermal, hydro, and industrial power plants  built on decades of hands-on experience.
             </p>
             <p className="text-white/75 text-[15px] md:text-[16px] leading-7 md:leading-8 max-w-[62ch] mb-6 md:mb-7">
-              At Texron Power, we don't just manufacture turbines and control systems - we become long-term partners for your plant's <span className="text-warning font-medium text-salience-alert">reliability</span>. From new installations to complex retrofits, our team of seasoned engineers is here to keep your turbines running at <span className="font-medium text-salience-success">peak performance</span>.       
+              At Texron Power, we don't just manufacture turbines and control systems  we become long-term partners for your plant's <span className="text-warning font-medium text-salience-alert">reliability</span>. From new installations to complex retrofits, our team of seasoned engineers is here to keep your turbines running at <span className="font-medium text-salience-success">peak performance</span>.       
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8 md:mb-10 justify-center md:justify-start">
               <div className="flex items-center gap-2 text-sm text-[13px] text-white/90">
@@ -239,7 +260,7 @@ export function HomePage() {
                 <CheckCircle className="w-4 h-4 text-[#FF6B35]" /> 30+ Years Combined Experience
               </div>
               <div className="flex items-center gap-2 text-sm text-[13px] text-white/90">
-                <CheckCircle className="w-4 h-4 text-[#FF6B35]" /> 60+ Commissioned Projects
+                <CheckCircle className="w-4 h-4 text-[#FF6B35]" /> 200+ Commissioned Projects
               </div>
             </div>
             <div className="flex flex-wrap gap-3.5 justify-center md:justify-start">
@@ -291,10 +312,10 @@ export function HomePage() {
               About Texron
             </h2>
             <h3 className="text-[#1E3A5F] text-[28px] md:text-[34px] font-semibold mb-4 leading-tight">
-              Solving tough turbine problems with smart, cost-effective solutions
+              Solving complex turbine problems with smart, cost-effective solutions
             </h3>
             <p className="text-[#5A6B7D] text-[15px] mb-4 leading-relaxed">
-              We're a passionate team of engineers based out of Peenya Industrial Area, Bengaluru - the heart of India's industrial corridor. With a collective experience spanning several decades in turbo machinery, we've built a reputation for solving tough turbine problems.
+              We're a passionate team of engineers based out of Peenya Industrial Area, Bengaluru  the heart of India's industrial corridor. With a collective experience spanning several decades in turbo machinery, we've built a reputation for solving tough turbine problems.
             </p>
             <p className="text-[#5A6B7D] text-[15px] mb-8 leading-relaxed">
               Whether you're running a 3 MW captive power unit or managing a 150 MW utility plant, we've got the expertise and the track record to back it up.
@@ -303,11 +324,10 @@ export function HomePage() {
             <h4 className="text-[#1E3A5F] font-semibold text-[18px] mb-4">Why Plant Managers Trust Texron</h4>
             <ul className="space-y-3">
               {[
-                "Condition-based repair approach - we fix what actually needs fixing, not everything on the shelf",
+                "Condition-based repair approach : we fix what actually needs fixing, not everything on the shelf",
                 "Transparent pricing with no surprises mid-project",
                 "End-to-end support: from design engineering to commissioning to long-term maintenance",
-                "Custom hydraulic and control system design in-house",
-                "Responsive team - we understand that turbine downtime costs you money every hour",
+                "Responsive team : we understand that turbine downtime costs  money every hour",
               ].map((item, idx) => (
                 <li key={idx} className="flex gap-3 items-start text-[#5A6B7D] text-[14px]">
                   <CheckCircle className="w-5 h-5 text-[#FF6B35] shrink-0 mt-0.5" />
@@ -332,10 +352,6 @@ export function HomePage() {
         </div>
       </section>
 
-
-
-
-
       {/* Meet the Leadership */}
       <section className="py-16 bg-[#F5F5F5]">
         <div className="site-shell">
@@ -359,7 +375,7 @@ export function HomePage() {
                 </div>
               </div>
               <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6">
-                A Mechanical Engineer from Bangalore University (1991), Jagadish brings over 30 years of hands-on power plant experience to the table. He has personally led installation, erection, and commissioning projects up to 150 MW, and is deeply experienced in turbine diagnostics and performance optimization.
+                A Mechanical Engineer from Bangalore University (1991), Jagadish brings over 28 years of hands-on power plant experience to the table. He has personally led installation, erection, and commissioning projects up to 150 MW, and is deeply experienced in turbine diagnostics and performance optimization.
               </p>
               <h5 className="font-semibold text-[#1A2A3A] text-[14px] mb-3">Highlights from his career:</h5>
               <ul className="space-y-2">
@@ -386,12 +402,12 @@ export function HomePage() {
                 </div>
               </div>
               <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6">
-                An Electrical & Electronics Engineer with over 24 years of experience in power plant automation and protection systems, Stanley is the brain behind Texron's control engineering capabilities.
+                An Electrical & Electronics Engineer with over 24 years of experience in power plant automation and protection systems, texron's control engineering capabilities.
               </p>
               <h5 className="font-semibold text-[#1A2A3A] text-[14px] mb-3">Highlights from his career:</h5>
               <ul className="space-y-2">
                 {[
-                  "Installation & commissioning of turbine and generator systems across 60+ projects (3 MW to 130 MW)",
+                  "Installation & commissioning of turbine and generator systems across 100+ projects (3 MW to 130 MW)",
                   "Design of custom hydraulic governor systems for turbine applications",
                   "Engineering of DCS/PLC-based turbine control and protection systems",
                   "Design and fabrication of HT, LT, and control panels",
@@ -407,20 +423,6 @@ export function HomePage() {
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <BusinessPillars />
 
       {/* Products & Solutions */}
@@ -433,7 +435,7 @@ export function HomePage() {
             <h3 className="text-[#1E3A5F] text-[28px] md:text-[32px] font-semibold mb-4">
               Comprehensive Range of Turbine Equipment
             </h3>
-            <p className="text-[#5A6B7D] text-[15px]">
+            <p className="text-[#5A6B7D] text-[15px] max-w-2xl mx-auto leading-relaxed">
               We manufacture, supply, and retrofit top-tier equipment customized to your process requirements.
             </p>
           </div>
@@ -447,12 +449,12 @@ export function HomePage() {
               },
               {
                 title: "Steam turbine Spares",
-                desc: "OEM-quality spare parts and components for steam turbines. Drop-in replacements with performance guarantees.",
+                desc: "OEM-quality spare parts and components for steam turbines. Drop-in replacements with assured performance.",
                 icon: Settings,
               },
               {
                 title: "Refurbishment, Retrofit & Upgrades",
-                desc: "Electronic governors, turbine protection systems, and control upgrades. Improve reliability without full replacement costs.",
+                desc: " Steam path components modifications and replacements, reconditioning, Electronic governors, turbine protection systems, and control upgrades.",
                 icon: Settings,
               },
               {
@@ -461,8 +463,8 @@ export function HomePage() {
                 icon: HardDrive,
               },
               {
-                title: "Hydraulics Process Instruments",
-                desc: "Precision-engineered hydraulic systems for turbine governors and process instruments - custom-designed for each application.",
+                title: "Hydraulics and  Process Instruments",
+                desc: "Precision-engineered hydraulic systems for turbine governors and process instruments  custom-designed for each application.",
                 icon: Sliders,
               },
             ].map((prod) => (
@@ -476,7 +478,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Service Hub Section */}
+            {/* Service Hub Section */}
       <section className="service-hub relative overflow-hidden border-y border-[#24374A] bg-[#0C1A2A] py-16 md:py-20">
         <div className="service-hub-stream service-hub-stream-a" aria-hidden="true" />
         <div className="service-hub-stream service-hub-stream-b" aria-hidden="true" />
@@ -490,17 +492,15 @@ export function HomePage() {
               Our Services
             </h2>
             <h3 className="text-white text-[28px] md:text-[34px] font-semibold mb-4">
-              Service Hub with Technical Interactivity
+              Services Hub
             </h3>
-            <p className="text-[#B7C6D5] text-[15px] md:text-[16px] mx-auto">
-              Hover a service node to inspect the matching turbine zone. RLA highlights the generator core region to mirror our machine-level diagnostic depth.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 xl:gap-10 items-stretch">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 xl:gap-10 items-start">
+            {/* Left: Service List */}
             <div className="xl:col-span-5">
-              <div className="rounded-2xl border border-[#2F475E] bg-[#102338]/90 p-3 md:p-4 xl:h-[560px]">
-                <div className="service-hub-list-scroll max-h-[430px] md:max-h-[520px] xl:h-full xl:max-h-none space-y-2 overflow-y-auto pr-1">
+              <div className="rounded-2xl border border-[#2F475E] bg-[#102338]/90 p-3 md:p-4">
+                <div className="service-hub-list-scroll max-h-[430px] md:max-h-[520px] xl:max-h-[560px] space-y-2 overflow-y-auto pr-1">
                   {serviceHubItems.map((service, index) => {
                     const isActive = activeHubService.id === service.id;
 
@@ -541,49 +541,24 @@ export function HomePage() {
               </div>
             </div>
 
+                   {/* Right: Image Display — fully visible, no scroll needed */}
             <div className="xl:col-span-7">
-              <div className="relative min-h-[420px] md:min-h-[560px] xl:h-[560px] overflow-hidden rounded-2xl border border-[#2F475E] bg-[#102338] shadow-[0_22px_70px_rgba(3,8,18,0.65)]">
-                <img
-                  src={serviceHubImage}
-                  alt="Interactive turbine service hub visualization"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
+              <div className="relative overflow-hidden rounded-2xl border border-[#2F475E] bg-[#0C1A2A] shadow-[0_22px_70px_rgba(3,8,18,0.65)]">
+                
+                {/* Image — shorter so card stays in viewport */}
+                <div className="relative w-full">
+                  <img
+                    src={activeHubService.image}
+                    alt={activeHubService.title}
+                    className="w-full h-auto max-h-[240px] sm:max-h-[300px] md:max-h-[340px] xl:max-h-[380px] object-contain mx-auto"
+                    loading="lazy"
+                  />
+                </div>
 
-                <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(8,18,30,0.78)_0%,rgba(10,24,38,0.36)_48%,rgba(255,107,53,0.18)_100%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(2,132,199,0.3),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(255,107,53,0.24),transparent_44%)]" />
-
-                <div
-                  className="service-hub-glow"
-                  style={{
-                    top: activeHubService.hotspot.top,
-                    left: activeHubService.hotspot.left,
-                    width: activeHubService.hotspot.size,
-                    height: activeHubService.hotspot.size,
-                  }}
-                  aria-hidden="true"
-                />
-
-                {serviceHubItems.map((service) => {
-                  const isActive = activeHubService.id === service.id;
-
-                  return (
-                    <span
-                      key={service.id}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full border transition-all duration-300 ${isActive
-                        ? "h-4 w-4 border-[#FFD3C2] bg-[#FF6B35] shadow-[0_0_0_8px_rgba(255,107,53,0.25),0_0_30px_rgba(255,107,53,0.55)]"
-                        : "h-3 w-3 border-white/50 bg-white/35"
-                        }`}
-                      style={{ top: service.hotspot.top, left: service.hotspot.left }}
-                      aria-hidden="true"
-                    />
-                  );
-                })}
-
-                <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#3E5D79] bg-[#10243A]/85 p-4 backdrop-blur-sm md:inset-x-6 md:bottom-6 md:p-5">
-                  <p className="font-[var(--font-mono)] text-[10px] tracking-[0.18em] text-[#FFAA8A] uppercase">Live Focus Node</p>
-                  <p className="mt-1 text-[14px] md:text-[16px] font-semibold text-white">{activeHubService.title}</p>
-                  <p className="mt-1 text-[12px] md:text-[13px] text-[#C8D9E8]">{activeHubService.summary}</p>
+                {/* Bottom info card — ultra compact */}
+                <div className="relative inset-x-0 bottom-0 rounded-b-2xl border-t border-[#3E5D79] bg-[#10243A]/95 px-4 py-2 backdrop-blur-sm md:px-5">
+                  <p className="font-[var(--font-mono)] text-[9px] tracking-[0.18em] text-[#FFAA8A] uppercase leading-none">Live Focus Node</p>
+                  <p className="mt-1 text-[13px] md:text-[14px] font-semibold text-white leading-tight">{activeHubService.title}</p>
                 </div>
               </div>
             </div>
@@ -692,7 +667,7 @@ export function HomePage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-[28px] md:text-[36px] font-bold mb-4">Got a turbine challenge? Let's talk.</h2>
           <p className="text-white/60 text-[16px] mb-8 max-w-2xl mx-auto">
-            Whether you're planning a major retrofit, dealing with a recurring fault, or just want a second opinion on your turbine health - our team is ready to help.
+            Whether you're planning a major retrofit, dealing with a recurring fault, or just want a second opinion on your turbine health : our team is ready to help.
           </p>
 
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-8 text-[14px]">

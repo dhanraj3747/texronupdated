@@ -6,6 +6,12 @@ import {
 import { Breadcrumb } from "../components/Breadcrumb";
 import { PageTimestamp } from "../components/PageTimestamp";
 
+// ✅ Imported images (4 total)
+import img15 from "../../../imageAssets/img15.jpeg";
+import img1 from "../../../imageAssets/img1.jpeg";
+import img38 from "../../../imageAssets/img38.jpeg";
+
+
 const hydroServices = [
   "Engineering & manufacturing of Governing Hydraulic system (Valve Table Assembly)",
   "Panels for the Governor and Turbo Supervisory system",
@@ -56,7 +62,7 @@ const processFlow = [
   "Preliminary engineering: Overview, System Architecture, IO counts, SCADA, OS, ES & HMI",
   "Selection of PLC components & detailed engineering",
   "Engineering design and manufacturing of Governor control panel",
-  "Application software development — Logics and SCADA",
+  "Application software development  Logics and SCADA",
   "Installation & Commissioning"
 ];
 
@@ -92,7 +98,7 @@ export function HydraulicTurbinePage() {
             </div>
             <div className="rounded-xl overflow-hidden border border-white/15 bg-[#0F1A28]">
               <img 
-                src="/imageAssets/img38.jpeg" 
+                src={img15}
                 alt="Hydro Electric Turbine Package" 
                 className="w-full h-auto"
               />
@@ -154,8 +160,8 @@ export function HydraulicTurbinePage() {
               </ul>
             </div>
             <div className="bg-[#F8F9FA] rounded-xl p-4 border border-[#E5E7EB]">
-              <img src="/imageAssets/img1.jpeg" alt="Governor Retrofit Valve Table Assembly" className="w-full h-auto rounded-lg" />
-              <p className="text-[12px] text-[#6B7280] mt-2 text-center">Valve Table Assembly with Hydraulic Pumps</p>
+              <img src={""} alt="Governor Retrofit Valve Table Assembly" className="w-full h-auto rounded-lg" />
+      
             </div>
           </div>
         </div>
@@ -166,7 +172,7 @@ export function HydraulicTurbinePage() {
         <div className="site-shell">
           <div className="text-center mb-12">
             <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl mb-2">Technical Features of Control System</h2>
-            <p className="text-[14px] text-white/60">Advanced automation and protection for hydroelectric operations</p>
+          
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {technicalFeatures.map((feature, idx) => {
@@ -185,25 +191,7 @@ export function HydraulicTurbinePage() {
         </div>
       </section>
 
-      {/* PRODUCT IMAGES — GALLERY (2 images) */}
-      <section className="py-14 md:py-20 bg-[#F8F9FA]">
-        <div className="site-shell">
-          <div className="text-center mb-10">
-            <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl text-[#1A2A3A] mb-2">System Gallery</h2>
-            <p className="text-[14px] text-[#6B7280]">Valve table assembly and integrated control systems</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-4 border border-[#E5E7EB]">
-              <img  src="/imageAssets/img15.jpeg" alt="Valve Table Assembly with Gauges" className="w-full h-auto rounded-lg" />
-              <p className="text-[12px] text-[#6B7280] mt-2 text-center">Valve Table Assembly with Proportional & Directional Valves</p>
-            </div>
-            <div className="bg-white rounded-xl p-4 border border-[#E5E7EB]">
-              <img  src="/imageAssets/img39.jpeg" alt="Governor Control Panel" className="w-full h-auto rounded-lg" />
-              <p className="text-[12px] text-[#6B7280] mt-2 text-center">Governor Control System & Emergency Stop</p>
-            </div>
-          </div>
-        </div>
-      </section>
+   
 
       {/* SOLUTION FLOW CHART / PROCESS — TEXT ONLY */}
       <section className="py-14 md:py-20">
@@ -212,7 +200,7 @@ export function HydraulicTurbinePage() {
             <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl text-[#1A2A3A] mb-2 text-center">
               Our Strength in Governor Control System
             </h2>
-            <p className="text-[14px] text-[#6B7280] mb-8 text-center">Structured process from survey to commissioning</p>
+           
 
             <div className="space-y-4">
               {processFlow.map((step, idx) => (
@@ -241,7 +229,7 @@ export function HydraulicTurbinePage() {
         </div>
       </section>
 
-      <PageTimestamp lastUpdated="June 2026" nextAudit="Q3 2026" />
+    
     </div>
   );
 }
