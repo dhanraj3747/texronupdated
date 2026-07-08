@@ -146,7 +146,7 @@ export default function Spares() {
                 Electrical instrumentation spares:
               </h3>
               <p className="text-sm md:text-base leading-relaxed text-gray-600 text-justify">
-                We offer wide range of electrical instrumentation spares right from minor components to complete system.Our experience applies to supply either original component or the equilent alternative products to meet the operational requirements.
+                We offer wide range of electrical instrumentation spares right from minor components to complete system. Our experience applies to supply either original component or the equilent alternative products to meet the operational requirements.
               </p>
             </div>
 

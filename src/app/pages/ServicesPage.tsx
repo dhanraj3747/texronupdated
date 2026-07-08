@@ -10,7 +10,7 @@ export function ServicesPage() {
        title: "Turbine Overhauling",
        subtitle: "Thorough. Systematic. Documented.",
       detailPath: "/services/turbine-overhauling",
-       desc: "A proper turbine overhaul goes well beyond cleaning and inspection. Our overhauling process covers every critical component - from rotor and blading to bearings, seals, and governing systems - with detailed documentation at every step.",
+       desc: "A proper turbine overhaul goes well beyond cleaning and inspection. Our overhauling process covers every critical component  from rotor and blading to bearings, seals, and governing systems  with detailed documentation at every step.",
        bullets: [
          "Pre-overhaul condition assessment and planning",
          "Disassembly, cleaning, and component-by-component inspection",

@@ -200,7 +200,7 @@ export function BlogPage() {
                     <h2 className="text-[#1E3A5F] text-[20px] font-semibold mb-3 leading-snug hover:text-[#FF6B35] transition-colors cursor-pointer" onClick={() => setActivePost(post)}>
                       {post.title}
                     </h2>
-                <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6 md:line-clamp-3">
+                <p className="text-[#5A6B7D] text-[14px] leading-relaxed mb-6">
                 {post.metaDesc}
               </p>
                  </div>

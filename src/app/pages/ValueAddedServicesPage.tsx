@@ -97,7 +97,7 @@ export default function ValueAddedServicesPage(): JSX.Element {
               Unusual vibration in a turbine is often the first sign of a
               developing problem. Our expert vibration analysts use calibrated
               instruments and proven diagnostic methods to identify the root
-              cause — whether it&apos;s a balance issue, misalignment, bearing
+              cause  whether it&apos;s a balance issue, misalignment, bearing
               wear, or something structural.
             </p>
             <h4 className="font-semibold text-[#1A2A3A] text-[16px] mb-4">
