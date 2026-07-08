@@ -35,20 +35,7 @@ export function ServicesPage() {
          "Load trials, grid synchronization, and performance acceptance testing"
        ]
     },
-    {
-       id: "vibration",
-       icon: Activity,
-       title: "Vibration Analysis",
-       subtitle: "Listen to What Your Turbine Is Telling You",
-      detailPath: "/services/vibration-analysis-diagnostics",
-       desc: "Unusual vibration in a turbine is often the first sign of a developing problem. Our expert vibration analysts use calibrated instruments and proven diagnostic methods to identify the root cause - whether it's a balance issue, misalignment, bearing wear, or something structural.",
-       bullets: [
-         "Online and offline vibration measurement",
-         "Spectrum analysis and phase measurement",
-         "Rotor balancing (shop and in-situ)",
-         "Detailed diagnostic report with recommended corrective actions"
-       ]
-    },
+  
     {
        id: "rla",
        icon: FileSearch,

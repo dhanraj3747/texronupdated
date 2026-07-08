@@ -1,5 +1,5 @@
 import React from 'react';
-import texronLogo from '../../../imageAssets/texron logo.jpeg'; // adjust path as needed
+import texronLogo from '../../../imageAssets/texron logo.png'; // adjust path as needed
 
 export function TexronLogo({ className = "" }: { className?: string }) {
   return (

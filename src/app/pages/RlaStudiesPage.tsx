@@ -100,11 +100,11 @@ export function RlaStudiesPage() {
             <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
               <img
                 src={rlaImg1}
-                alt="Turbine Core Inspection and Condition Assessment"
+                alt="Generator Inspection and Condition Assessment"
                 className="w-full h-[280px] object-cover"
               />
               <div className="p-3 bg-white">
-                <p className="text-[12px] text-[#5A6B7D]">Turbine Core Inspection — On-Site Condition Assessment</p>
+                <p className="text-[12px] text-[#5A6B7D]">Generator Inspection</p>
               </div>
             </div>
             <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">

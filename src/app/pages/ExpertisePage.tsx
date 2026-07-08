@@ -247,7 +247,7 @@ export function ExpertisePage() {
         </div>
       </section>
 
-      <PageTimestamp lastUpdated="March 2026" nextAudit="Q2 2026" />
+     
     </div>
   );
 }

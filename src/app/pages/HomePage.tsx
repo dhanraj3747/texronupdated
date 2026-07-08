@@ -179,7 +179,7 @@ export function HomePage() {
   const activeHubService = serviceHubItems.find((item) => item.id === activeService) ?? serviceHubItems[3];
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <SEO 
         title="Texron Power - Turbine Manufacturer & Power Plant Services | Bengaluru" 
         description="Texron Power provides world-class steam turbine manufacturing, turbine retrofit, overhauling, and power plant services across India. ISO 9001:2015 certified. Get a quote today." 

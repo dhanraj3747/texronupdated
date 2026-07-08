@@ -234,11 +234,11 @@ export function BhelRetrofitsPage() {
               <div className="rounded-xl overflow-hidden border border-[#E8EAED] bg-white shadow-sm">
                 <img
                   src={govImg3}
-                  alt="Electro-Hydraulic Actuator and Valve Assembly"
+                  alt="Electro Pneumatic Actuator and Valve Assembly"
                   className="w-full h-[320px] object-cover"
                 />
                 <div className="p-3 bg-white">
-                  <p className="text-[12px] text-[#5A6B7D]">Electro-Hydraulic Actuator — Field Assembly</p>
+                  <p className="text-[12px] text-[#5A6B7D]">Electro Pneumatic Actuator</p>
                 </div>
               </div>
 

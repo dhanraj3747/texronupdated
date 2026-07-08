@@ -118,7 +118,7 @@ export function SteamTurbinePage() {
                 alt="Steam Turbine Engineering Internal Cut Section Layout" 
                 className="w-full h-auto rounded-lg shadow-md" 
               />
-              <p className="text-[12px] text-white/60 mt-2 text-center">Multi-Stage Turbine Rotors & Blade Configuration Architecture</p>
+            
             </div>
           </div>
         </div>

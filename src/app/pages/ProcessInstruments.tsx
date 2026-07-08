@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-// 📷 Asset Imports
-import pi1 from "../../../imageAssets/p1.jpg"; 
-import pi2 from "../../../imageAssets/p2.jpg"; 
-import pi3 from "../../../imageAssets/p3.jpg";
+// 📷 Asset Imports - 9 New Instrument Images
+import img1 from "../../../imageAssets/casing-bolt-heater.jpeg";
+import img2 from "../../../imageAssets/Vibration probe.jpeg";
+import img3 from "../../../imageAssets/Speed sensor.jpeg";
+import img4 from "../../../imageAssets/PT 100 Temp Thermocouple.jpeg";
+import img5 from "../../../imageAssets/Pressure transmitter.jpeg";
+import img6 from "../../../imageAssets/PID controller.jpeg";
+import img7 from "../../../imageAssets/Magnetic level.jpeg";
+import img8 from "../../../imageAssets/LVDT position transmitter.jpeg";
+import img9 from "../../../imageAssets/Flow transmitter.jpeg";
+
 
 export default function ProcessInstruments() {
   const instrumentItems = [
@@ -24,9 +31,15 @@ export default function ProcessInstruments() {
   ];
 
   const imagesList = [
-    { src: pi1, alt: "Field Instruments - Thermocouple Assembly" },
-    { src: pi2, alt: "Field Instruments - Temperature Gauge" },
-    { src: pi3, alt: "Field Instruments - RTD with Connection Head" },
+    { src: img1, alt: "Casing Bolt Heater" },
+    { src: img2, alt: "Vibration Probe" },
+    { src: img3, alt: "Speed Sensor" },
+    { src: img4, alt: "PT100 Thermocouple" },
+    { src: img5, alt: "Pressure Transmitter" },
+    { src: img6, alt: "PID Controller" },
+    { src: img7, alt: "Magnetic Level Gauge" },
+    { src: img8, alt: "LVDT Position Transmitter" },
+    { src: img9, alt: "Flow Transmitter" },
   ];
 
   return (
@@ -46,15 +59,15 @@ export default function ProcessInstruments() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
           </Link>
-          
+
           <span className="text-gray-500 font-medium text-xs md:text-sm">&gt;</span>
-          
+
           <Link to="/products" className="text-gray-400 hover:text-white transition-colors tracking-wide">
             Products
           </Link>
-          
+
           <span className="text-gray-500 font-medium text-xs md:text-sm">&gt;</span>
-          
+
           <span className="text-[#FF6B35] font-medium tracking-wide">
             Process Instruments
           </span>
@@ -64,27 +77,28 @@ export default function ProcessInstruments() {
       {/* Main Page Content */}
       <section className="py-12 px-4 max-w-7xl mx-auto font-sans text-gray-800">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          
-          {/* ═══ EXTREME DIAGONAL STAGGERED IMAGES ═══ */}
-          <div className="grid grid-cols-3 gap-5 pt-16 pb-20">
+
+          {/* ═══ 9 IMAGES IN 3x3 RIGHT DIAGONAL STAGGER ═══ */}
+          <div className="grid grid-cols-3 gap-4 pt-8 pb-12">
             {imagesList.map((img, index) => {
               const col = index % 3;
-              // EXTREME diagonal: each image drops much further than the last
-              const offsetClass = col === 0 ? 'mt-0' : col === 1 ? 'mt-28' : 'mt-56';
-              
+              // RIGHT diagonal: column 0 drops most, column 2 drops least
+              const offsetClass = col === 0 ? 'mt-16' : col === 1 ? 'mt-8' : 'mt-0';
+
               return (
                 <div 
                   key={index} 
-                  className={`overflow-hidden rounded-lg shadow-md border border-gray-200 bg-gray-50 ${offsetClass}`}
+                  className={`overflow-hidden rounded-lg shadow-md border border-gray-200 bg-white ${offsetClass}`}
+                  style={{ minHeight: '140px' }}
                 >
                   {img.src ? (
                     <img 
                       src={img.src} 
                       alt={img.alt} 
-                      className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-[160px] object-contain hover:scale-105 transition-transform duration-300 p-2"
                     />
                   ) : (
-                    <div className="w-full aspect-square flex items-center justify-center">
+                    <div className="w-full h-[160px] flex items-center justify-center">
                       <span className="text-xs text-gray-400 italic">Image Space</span>
                     </div>
                   )}

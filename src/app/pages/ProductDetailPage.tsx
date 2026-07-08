@@ -6,7 +6,7 @@ import { PageTimestamp } from "../components/PageTimestamp";
 import governorProductImage from "../../../imageAssets/IMG-20211116-WA0032(2).jpg.jpeg";
 import relayProductImage from "../../../imageAssets/IMG-20211123-WA0078(2).jpg.jpeg";
 import actuatorProductImage from "../../../imageAssets/IMG20230518115707.jpg.jpeg";
-import defaultProductImage from "../../../imageAssets/IMG20240902200100.jpg.jpeg";
+import defaultProductImage from "../../../imageAssets/steam turbine .png";
 
 type CompatStatus = "full" | "partial" | "none" | "rfq";
 
@@ -132,7 +132,7 @@ const products: Record<string, ProductData> = {
 // Fallback for products without full detail
 const defaultProduct: ProductData = {
   name: "Product",
-  code: "TX-XXX",
+  code: "",
   tagline: "Engineered for Legacy System Compatibility",
   description: "This product page is being populated with detailed technical specifications. Contact our engineering team for immediate specifications and compatibility assessment.",
   image: defaultProductImage,
@@ -286,7 +286,7 @@ export function ProductDetailPage() {
           </div>
         </div>
       </section>
-      <PageTimestamp lastUpdated="March 2026" nextAudit="Q2 2026" />
+      <PageTimestamp lastUpdated="" nextAudit="" />
     </div>
   );
 }

@@ -5,14 +5,14 @@ import { TexronLogo } from "./TexronLogo";
 
 const productItems = [
   { name: "Steam Turbine", slug: "steam-turbine", icon: Shield },
-  { name: "Governor retrofit and upgrades", slug: "refurbishment-retrofit-upgrades", icon: Settings },
+  { name: "Refurbishment, Retrofit and Upgrades", slug: "refurbishment-retrofit-upgrades", icon: Settings },
   { name: "Electrical Panels", slug: "electrical-panels", icon: Zap },
   { name: "Spares", slug: "spares", icon: Wrench },
   { name: "Process Instruments", slug: "process-instruments", icon: Radio },
 ];
 
 const serviceItems = [
-  { name: "Repurshiment", slug: "/services/governor-retrofits-upgrades" },
+  { name: "Governor Retrofit and Upgrades", slug: "/services/governor-retrofits-upgrades" },
   { name: "RLA & Condition Assessment", slug: "/services/rla-condition-assessment" },
   { name: "Overhauling", slug: "/services/turbine-overhauling" },
   { name: "LTSA & AMC Services", slug: "/services/ltsa-amc-services" },

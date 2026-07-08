@@ -76,7 +76,7 @@ export function FloatingEmergency() {
             </div>
 
             <p className="font-[var(--font-mono)] text-[9px] text-[#5A6B7D] text-center mt-3">
-              30-MIN CALLBACK GUARANTEED 24/7
+               CALLBACK GUARANTEED 
             </p>
           </motion.div>
         )}

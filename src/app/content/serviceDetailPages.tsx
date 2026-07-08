@@ -779,7 +779,7 @@ export const serviceDetailPages: Record<string, ServiceDetailContent> = {
   epcServicesSubtitle: "Engineering • Procurement • Construction",
   epcServicesIntro: "Complete Turnkey Solutions for Steam Turbine Generator Sets & Power Plants",
   epcServicesDescription:
-    "TEXRON provides complete EPC execution services for steam turbine generator systems and power plants—from concept and engineering through installation, commissioning, and performance validation.",
+    "TEXRON provides complete EPC execution services for steam turbine generator systems and power plants from concept and engineering through installation, commissioning, and performance validation.",
   epcServicesList: [
     "Understanding customer requirements & Finalizing plant type and capacity",
     "Detailed engineering & design specifications for STG, auxiliary systems & Balance of Plant.",

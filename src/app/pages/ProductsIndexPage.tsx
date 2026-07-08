@@ -4,13 +4,16 @@ import { Link } from "react-router";
 import { FluidGallery } from "../components/ui/fluid-gallery";
 
 
-import  productsImage1 from "../../../imageAssets/product1.jpg";
-import productsImage2 from "../../../imageAssets/product2.jpeg";
+import  productsImage1 from "../../../imageAssets/product1.jpeg";
+import productsImage2 from "../../../imageAssets/product2.png";
+import productsImage3 from "../../../imageAssets/product3.jpg";
+import productsImage4 from "../../../imageAssets/product4.JPG";
 
 const productsSnapshots = [
-  { src: productsImage1, alt: "Steam turbine mechanical assembly and alignment stage", category: "", span: "wide" as const },
-  { src:productsImage2, alt: "Control and protection equipment integration", category: "" },
- 
+  { src: productsImage1, alt: "Steam turbine mechanical assembly and alignment stage", category: "" },
+  { src: productsImage2, alt: "Control and protection equipment integration", category: "" },
+  { src: productsImage3, alt: "Precision gear shaft and pinion assembly for turbine drive", category: "" },
+  { src: productsImage4, alt: "Industrial shell and tube heat exchangers for power plant", category: "" },
 ];
 
 
